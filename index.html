@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuestro Equipo - Tarjetas de perfil</title>
+
+  <!-- Fuentes de Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+  <!-- Estilos propios -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <main class="equipo">
+    <header class="equipo__encabezado">
+      <h1 class="equipo__titulo">Nuestro Equipo</h1>
+      <p class="equipo__subtitulo">Tarjetas de perfil construidas con <code>clip-path</code> y metodología BEM</p>
+    </header>
+
+    <section class="equipo__tablero">
+
+      <!-- Tarjeta 1: cabecera en V + avatar hexagonal -->
+      <article class="tarjeta tarjeta--hexagono">
+        <header class="tarjeta__cabecera">
+          <div class="tarjeta__marco">
+            <img class="tarjeta__avatar" src="https://randomuser.me/api/portraits/women/68.jpg" alt="Foto de Laura Gómez">
+          </div>
+        </header>
+
+        <div class="tarjeta__cuerpo">
+          <h2 class="tarjeta__nombre">Laura Gómez</h2>
+          <p class="tarjeta__rol">Diseñadora UI/UX</p>
+          <span class="tarjeta__separador"></span>
+          <p class="tarjeta__texto">
+            Crea interfaces limpias y accesibles pensando siempre en la experiencia del usuario.
+          </p>
+
+          <div class="tarjeta__acciones">
+            <a href="#" class="tarjeta__accion" aria-label="Agregar"><i class="fa-solid fa-plus"></i></a>
+            <a href="#" class="tarjeta__accion" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="tarjeta__accion" aria-label="Correo"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <footer class="tarjeta__pie">
+          <ul class="tarjeta__redes">
+            <li><a href="#" class="tarjeta__enlace-red" aria-label="Behance"><i class="fa-brands fa-behance"></i></a></li>
+            <li><a href="#" class="tarjeta__enlace-red" aria-label="Dribbble"><i class="fa-brands fa-dribbble"></i></a></li>
+            <li><a href="#" class="tarjeta__enlace-red" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+            <li><a href="#" class="tarjeta__enlace-red" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+          </ul>
+        </footer>
+      </article>
+
+      <!-- Tarjeta 2: bordes en zigzag + avatar circular -->
+      <article class="tarjeta tarjeta--zigzag">
+        <header class="tarjeta__cabecera">
+          <div class="tarjeta__marco">
+            <img class="tarjeta__avatar" src="https://randomuser.me/api/portraits/men/75.jpg" alt="Foto de Andrés Ruiz">
+          </div>
+        </header>
+
+        <div class="tarjeta__cuerpo">
+          <h2 class="tarjeta__nombre">Andrés Ruiz</h2>
+          <p class="tarjeta__rol">Desarrollador Front-end</p>
+          <span class="tarjeta__separador"></span>
+          <p class="tarjeta__texto">
+            Convierte diseños en páginas rápidas y adaptables con HTML, CSS y JavaScript.
+          </p>
+
+          <div class="tarjeta__acciones">
+            <a href="#" class="tarjeta__accion" aria-label="Agregar"><i class="fa-solid fa-plus"></i></a>
+            <a href="#" class="tarjeta__accion" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="tarjeta__accion" aria-label="Correo"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <footer class="tarjeta__pie">
+          <ul class="tarjeta__redes">
+            <li><a href="#" class="tarjeta__enlace-red" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
+            <li><a href="#" class="tarjeta__enlace-red" aria-label="CodePen"><i class="fa-brands fa-codepen"></i></a></li>
+            <li><a href="#" class="tarjeta__enlace-red" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+            <li><a href="#" class="tarjeta__enlace-red" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a></li>
+          </ul>
+        </footer>
+      </article>
+
+      <!-- Tarjeta 3: cabecera diagonal + avatar octagonal + pie con esquinas cortadas -->
+      <article class="tarjeta tarjeta--octagono">
+        <header class="tarjeta__cabecera">
+          <div class="tarjeta__marco">
+            <img class="tarjeta__avatar" src="https://randomuser.me/api/portraits/women/21.jpg" alt="Foto de Camila Torres">
+          </div>
+        </header>
+
+        <div class="tarjeta__cuerpo">
+          <h2 class="tarjeta__nombre">Camila Torres</h2>
+          <p class="tarjeta__rol">Desarrolladora Back-end</p>
+          <span class="tarjeta__separador"></span>
+          <p class="tarjeta__texto">
+            Diseña bases de datos y APIs seguras que mantienen todo funcionando detrás de escena.
+          </p>
+
+          <div class="tarjeta__acciones">
+            <a href="#" class="tarjeta__accion" aria-label="Agregar"><i class="fa-solid fa-plus"></i></a>
+            <a href="#" class="tarjeta__accion" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="tarjeta__accion" aria-label="Correo"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <footer class="tarjeta__pie">
+          <ul class="tarjeta__redes">
+            <li><a href="#" class="tarjeta__enlace-red" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></li>
+            <li><a href="#" class="tarjeta__enlace-red" aria-label="Stack Overflow"><i class="fa-brands fa-stack-overflow"></i></a></li>
+            <li><a href="#" class="tarjeta__enlace-red" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+            <li><a href="#" class="tarjeta__enlace-red" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+          </ul>
+        </footer>
+      </article>
+
+    </section>
+  </main>
+
+</body>
+</html>

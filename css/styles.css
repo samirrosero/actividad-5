@@ -1,0 +1,321 @@
+/* =========================================================
+   Variables
+   ========================================================= */
+:root {
+  --color-pagina: #f1f5f9;
+  --color-oscuro: #1e293b;
+  --color-oscuro-claro: #334155;
+  --color-texto: #64748b;
+  --color-blanco: #fff;
+
+  /* Colores por defecto de la tarjeta (los cambia cada modificador) */
+  --acento: #14b8a6;
+  --acento-oscuro: #0f766e;
+
+  --ancho-tarjeta: 280px;
+  --alto-cabecera: 120px;
+  --tamano-marco: 104px;
+}
+
+/* =========================================================
+   Reinicio básico
+   ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--color-pagina);
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* =========================================================
+   Bloque: equipo (contenedor de la página)
+   ========================================================= */
+.equipo {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 16px 48px;
+}
+
+.equipo__encabezado {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.equipo__titulo {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--color-oscuro);
+}
+
+.equipo__subtitulo {
+  margin-top: 4px;
+  color: var(--color-texto);
+}
+
+.equipo__tablero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--ancho-tarjeta), 1fr));
+  justify-items: center;
+  gap: 32px;
+  padding: 40px 24px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, var(--color-oscuro), var(--color-oscuro-claro));
+}
+
+/* =========================================================
+   Bloque: tarjeta
+   ========================================================= */
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--ancho-tarjeta);
+  background-color: var(--color-blanco);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.45);
+}
+
+/* --- Elemento: cabecera (la forma se recorta con clip-path en ::before) --- */
+.tarjeta__cabecera {
+  position: relative;
+  height: var(--alto-cabecera);
+}
+
+.tarjeta__cabecera::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--acento), var(--acento-oscuro));
+}
+
+/* --- Elemento: marco del avatar (borde blanco con la misma forma) --- */
+.tarjeta__marco {
+  position: absolute;
+  left: 50%;
+  bottom: calc(var(--tamano-marco) / -2);
+  transform: translateX(-50%);
+  width: var(--tamano-marco);
+  height: var(--tamano-marco);
+  padding: 5px;
+  background-color: var(--color-blanco);
+  z-index: 1;
+}
+
+.tarjeta__avatar {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* El marco y la foto comparten la forma de cada modificador */
+.tarjeta__marco,
+.tarjeta__avatar {
+  clip-path: var(--forma-avatar, circle(50%));
+}
+
+/* --- Elemento: cuerpo --- */
+.tarjeta__cuerpo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: calc(var(--tamano-marco) / 2 + 16px) 22px 26px;
+  text-align: center;
+}
+
+.tarjeta__nombre {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-oscuro);
+}
+
+.tarjeta__rol {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--acento-oscuro);
+}
+
+.tarjeta__separador {
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin: 12px 0;
+  border-radius: 3px;
+  background-color: var(--acento);
+}
+
+.tarjeta__texto {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--color-texto);
+}
+
+/* --- Elemento: acciones (+, whatsapp, correo) --- */
+.tarjeta__acciones {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.tarjeta__accion {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  font-size: 1.05rem;
+  color: var(--acento-oscuro);
+  background-color: color-mix(in srgb, var(--acento) 15%, white);
+  clip-path: var(--forma-accion, circle(50%));
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.tarjeta__accion:hover {
+  background-color: var(--acento);
+  color: var(--color-blanco);
+}
+
+/* --- Elemento: pie --- */
+.tarjeta__pie {
+  background-color: var(--color-oscuro);
+}
+
+.tarjeta__redes {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 16px 0;
+}
+
+.tarjeta__enlace-red {
+  color: var(--color-blanco);
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.tarjeta__enlace-red:hover {
+  color: var(--acento);
+}
+
+/* =========================================================
+   Modificador: tarjeta--hexagono (turquesa)
+   - Cabecera con punta en V
+   - Avatar y botones hexagonales
+   - Pie con muesca en V hacia abajo
+   ========================================================= */
+.tarjeta--hexagono {
+  --acento: #14b8a6;
+  --acento-oscuro: #0f766e;
+  --forma-avatar: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  --forma-accion: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+.tarjeta--hexagono .tarjeta__cabecera::before {
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
+}
+
+.tarjeta--hexagono .tarjeta__pie {
+  padding-top: 14px;
+  clip-path: polygon(0 0, 50% 14px, 100% 0, 100% 100%, 0 100%);
+}
+
+/* =========================================================
+   Modificador: tarjeta--zigzag (coral)
+   - Cabecera y pie con borde dentado
+   - Avatar circular y botones con forma de rombo
+   ========================================================= */
+.tarjeta--zigzag {
+  --acento: #fb7185;
+  --acento-oscuro: #e11d48;
+  --forma-avatar: circle(50%);
+  --forma-accion: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+.tarjeta--zigzag .tarjeta__accion {
+  width: 46px;
+  height: 46px;
+}
+
+.tarjeta--zigzag .tarjeta__cabecera::before {
+  clip-path: polygon(
+    0 0, 100% 0, 100% 88%,
+    95% 100%, 90% 88%, 85% 100%, 80% 88%, 75% 100%, 70% 88%,
+    65% 100%, 60% 88%, 55% 100%, 50% 88%, 45% 100%, 40% 88%,
+    35% 100%, 30% 88%, 25% 100%, 20% 88%, 15% 100%, 10% 88%,
+    5% 100%, 0 88%
+  );
+}
+
+.tarjeta--zigzag .tarjeta__pie {
+  padding-top: 12px;
+  clip-path: polygon(
+    0 12px, 5% 0, 10% 12px, 15% 0, 20% 12px, 25% 0, 30% 12px,
+    35% 0, 40% 12px, 45% 0, 50% 12px, 55% 0, 60% 12px,
+    65% 0, 70% 12px, 75% 0, 80% 12px, 85% 0, 90% 12px,
+    95% 0, 100% 12px, 100% 100%, 0 100%
+  );
+}
+
+/* =========================================================
+   Modificador: tarjeta--octagono (ámbar)
+   - Cabecera con corte diagonal
+   - Avatar y botones octagonales
+   - Pie con las esquinas superiores cortadas
+   ========================================================= */
+.tarjeta--octagono {
+  --acento: #f59e0b;
+  --acento-oscuro: #b45309;
+  --forma-avatar: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+  --forma-accion: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+}
+
+.tarjeta--octagono .tarjeta__cabecera::before {
+  clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);
+}
+
+.tarjeta--octagono .tarjeta__pie {
+  clip-path: polygon(24px 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 0 100%, 0 24px);
+}
+
+/* =========================================================
+   Diseño adaptable (media queries)
+   ========================================================= */
+@media (max-width: 680px) {
+  .equipo__titulo {
+    font-size: 2rem;
+  }
+
+  .equipo__tablero {
+    padding: 28px 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  :root {
+    --ancho-tarjeta: 100%;
+  }
+}
